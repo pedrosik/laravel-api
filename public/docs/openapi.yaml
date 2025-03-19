@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: evencik
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8080'
+paths:
+  /api/companies:
+    post:
+      summary: 'Create a new company'
+      operationId: createANewCompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/company.json
+      tags:
+        - Companies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Company name. :Attribute nie może być większy niż 255 znaków.'
+                  example: NFD
+                  nullable: false
+                nip:
+                  type: string
+                  description: 'Company NIP.'
+                  example: '1234567890'
+                  nullable: false
+                address:
+                  type: string
+                  description: 'Company address. :Attribute nie może być większy niż 255 znaków.'
+                  example: '123 Main St'
+                  nullable: false
+                city:
+                  type: string
+                  description: 'Company city. :Attribute nie może być większy niż 255 znaków.'
+                  example: Warsaw
+                  nullable: false
+                post_code:
+                  type: string
+                  description: 'Company post code. :Attribute nie może być większy niż 6 znaków.'
+                  example: 00-000
+                  nullable: false
+              required:
+                - name
+                - nip
+                - address
+                - city
+                - post_code
+      security: []
+    get:
+      summary: 'List all companies'
+      operationId: listAllCompanies
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/companies/companies.json
+      tags:
+        - Companies
+      security: []
+  '/api/companies/{company_id}':
+    get:
+      summary: 'Show a company'
+      operationId: showACompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/company.json
+      tags:
+        - Companies
+      security: []
+    delete:
+      summary: 'Delete a company'
+      operationId: deleteACompany
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Companies
+      security: []
+    parameters:
+      -
+        in: path
+        name: company_id
+        description: 'The ID of the company.'
+        example: 9e76ab76-fe59-4e81-9ff1-fc311b1d0d22
+        required: true
+        schema:
+          type: string
+  '/api/companies/{company_id}/employees':
+    post:
+      summary: 'Create a new employee'
+      operationId: createANewEmployee
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/employee.json
+      tags:
+        - Company
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                first_name:
+                  type: string
+                  description: 'Employee first name. :Attribute nie może być większy niż 255 znaków.'
+                  example: John
+                  nullable: false
+                last_name:
+                  type: string
+                  description: 'Employee last name. :Attribute nie może być większy niż 255 znaków.'
+                  example: Doe
+                  nullable: false
+                email:
+                  type: string
+                  description: 'Employee email. W polu value nie jest podany poprawny adres email. :Attribute nie może być większy niż 255 znaków.'
+                  example: john.doe@example.com
+                  nullable: false
+                phone:
+                  type: string
+                  description: 'Employee phone number. :Attribute nie może być większy niż 255 znaków.'
+                  example: '+48 123 456 789'
+                  nullable: false
+              required:
+                - first_name
+                - last_name
+                - email
+      security: []
+    get:
+      summary: 'List all employees for a company'
+      operationId: listAllEmployeesForACompany
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/employee.json
+      tags:
+        - Company
+      security: []
+    parameters:
+      -
+        in: path
+        name: company_id
+        description: 'The ID of the company.'
+        example: 9e76ab76-fe59-4e81-9ff1-fc311b1d0d22
+        required: true
+        schema:
+          type: string
+  /api/employees:
+    get:
+      summary: 'List all employees'
+      operationId: listAllEmployees
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/employee/employees.json
+      tags:
+        - Employees
+      security: []
+  '/api/employees/{employee_id}':
+    get:
+      summary: 'Show an employee'
+      operationId: showAnEmployee
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: storage/responses/employee.json
+      tags:
+        - Employees
+      security: []
+    delete:
+      summary: 'Delete an employee'
+      operationId: deleteAnEmployee
+      description: ''
+      parameters: []
+      responses:
+        204:
+          description: ''
+      tags:
+        - Employees
+      security: []
+    parameters:
+      -
+        in: path
+        name: employee_id
+        description: 'The ID of the employee.'
+        example: 9e77cecb-2769-401f-aa21-76255f0a29db
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Companies
+    description: ''
+  -
+    name: Company
+    description: ''
+  -
+    name: Employees
+    description: ''

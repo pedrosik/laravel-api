@@ -1,0 +1,409 @@
+{
+    "variable": [
+        {
+            "id": "baseUrl",
+            "key": "baseUrl",
+            "type": "string",
+            "name": "string",
+            "value": "http:\/\/localhost:8080"
+        }
+    ],
+    "info": {
+        "name": "evencik",
+        "_postman_id": "8972a3e8-8d79-4a02-8a82-887eb8e743a1",
+        "description": "",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Companies",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create a new company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"NFD\",\"nip\":\"1234567890\",\"address\":\"123 Main St\",\"city\":\"Warsaw\",\"post_code\":\"00-000\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/company.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List all companies",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/companies\/companies.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show a company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/:company_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/:company_id",
+                            "variable": [
+                                {
+                                    "id": "company_id",
+                                    "key": "company_id",
+                                    "value": "9e76ab76-fe59-4e81-9ff1-fc311b1d0d22",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/company.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete a company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/:company_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/:company_id",
+                            "variable": [
+                                {
+                                    "id": "company_id",
+                                    "key": "company_id",
+                                    "value": "9e76ab76-fe59-4e81-9ff1-fc311b1d0d22",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Company",
+            "description": "",
+            "item": [
+                {
+                    "name": "Create a new employee",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/:company_id\/employees",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/:company_id\/employees",
+                            "variable": [
+                                {
+                                    "id": "company_id",
+                                    "key": "company_id",
+                                    "value": "9e76ab76-fe59-4e81-9ff1-fc311b1d0d22",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"first_name\":\"John\",\"last_name\":\"Doe\",\"email\":\"john.doe@example.com\",\"phone\":\"+48 123 456 789\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/employee.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "List all employees for a company",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/companies\/:company_id\/employees",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/companies\/:company_id\/employees",
+                            "variable": [
+                                {
+                                    "id": "company_id",
+                                    "key": "company_id",
+                                    "value": "9e76ab76-fe59-4e81-9ff1-fc311b1d0d22",
+                                    "description": "The ID of the company."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/employee.json",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Employees",
+            "description": "",
+            "item": [
+                {
+                    "name": "List all employees",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/employee\/employees.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show an employee",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees\/:employee_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees\/:employee_id",
+                            "variable": [
+                                {
+                                    "id": "employee_id",
+                                    "key": "employee_id",
+                                    "value": "9e77cecb-2769-401f-aa21-76255f0a29db",
+                                    "description": "The ID of the employee."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 200,
+                            "body": "storage\/responses\/employee.json",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Delete an employee",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/employees\/:employee_id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/employees\/:employee_id",
+                            "variable": [
+                                {
+                                    "id": "employee_id",
+                                    "key": "employee_id",
+                                    "value": "9e77cecb-2769-401f-aa21-76255f0a29db",
+                                    "description": "The ID of the employee."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [],
+                            "code": 204,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "auth": {
+        "type": "noauth"
+    }
+}

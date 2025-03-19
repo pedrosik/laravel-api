@@ -6,6 +6,7 @@ namespace Tests\Feature\Http\Actions\Companies;
 
 use Tests\Feature\ApiTest;
 use Symfony\Component\HttpFoundation\Response;
+
 class CreateCompanyActionTest extends ApiTest
 {
     public function test_it_creates_company_successfully(): void
@@ -43,9 +44,9 @@ class CreateCompanyActionTest extends ApiTest
     public function test_it_returns_error_when_name_is_missing(): void
     {
         $data = [
-            'nip' => '1234567890',
-            'address' => '123 Test Street',
-            'city' => 'Test City',
+            'nip'       => '1234567890',
+            'address'   => '123 Test Street',
+            'city'      => 'Test City',
             'post_code' => '12-345',
         ];
 
@@ -57,7 +58,7 @@ class CreateCompanyActionTest extends ApiTest
         );
 
         $response->assertJsonValidationErrors([
-            'name' => 'Pole nazwa jest wymagane.',
+            'name' => __('validation.required', ['attribute' => 'nazwa']),
         ]);
 
         $this->assertDatabaseMissing('companies', [
@@ -86,7 +87,7 @@ class CreateCompanyActionTest extends ApiTest
         );
 
         $response->assertJsonValidationErrors([
-            'nip' => 'Pole nip jest nieprawidłowe.',
+            'nip' => __('validation.custom.nip_invalid'),
         ]);
 
         $this->assertDatabaseMissing('companies', [

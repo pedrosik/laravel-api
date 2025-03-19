@@ -67,7 +67,7 @@ class UpdateCompanyActionTest extends ApiTest
         );
 
         $response->assertJsonValidationErrors([
-            'nip' => 'Nip został(-a) już zajęty(-a).',
+            'nip' => __('validation.unique', ['attribute' => 'nip']),
         ]);
 
         $this->assertDatabaseHas('companies', [
@@ -101,11 +101,11 @@ class UpdateCompanyActionTest extends ApiTest
         );
 
         $response->assertJsonValidationErrors([
-            'nip' => 'Pole nip jest nieprawidłowe.',
+            'nip' => __('validation.custom.nip_invalid'),
         ]);
 
         $this->assertDatabaseMissing('companies', [
-            'id' => $company->id,
+            'id'  => $company->id,
             'nip' => $data['nip'],
         ]);
     }

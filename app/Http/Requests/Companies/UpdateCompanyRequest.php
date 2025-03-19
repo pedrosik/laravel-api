@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Company;
+namespace App\Http\Requests\Companies;
 
 use App\Models\Company;
 use App\Rules\NipRule;

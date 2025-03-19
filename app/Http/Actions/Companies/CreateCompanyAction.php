@@ -2,13 +2,13 @@
 
 namespace App\Http\Actions\Companies;
 
-use App\Http\Requests\Company\CreateCompanyRequest;
+use App\Http\Requests\Companies\CreateCompanyRequest;
 use App\Http\Resources\CompanyResource;
 use App\Services\CompanyService;
 
-class CreateCompanyAction
+final readonly class CreateCompanyAction
 {
-    public function __construct(private readonly CompanyService $companyService)
+    public function __construct(private CompanyService $companyService)
     {
     }
 
@@ -17,7 +17,7 @@ class CreateCompanyAction
      *
      * @group Companies
      *
-     * @response 200 storage/responses/company.json
+     * @response 200 storage/responses/companies/company.json
      */
     public function __invoke(CreateCompanyRequest $request): CompanyResource
     {

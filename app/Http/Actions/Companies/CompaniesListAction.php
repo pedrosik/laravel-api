@@ -6,14 +6,14 @@ use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class CompaniesListAction
+final readonly class CompaniesListAction
 {
     /**
      * List all companies
      *
      * @group Companies
      *
-     * @response 200 storage/responses/company/companies.json
+     * @response 200 storage/responses/companies/companies.json
      */
     public function __invoke(): AnonymousResourceCollection
     {

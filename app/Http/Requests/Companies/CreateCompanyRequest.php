@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Company;
+namespace App\Http\Requests\Companies;
 
 use App\Rules\NipRule;
 use Illuminate\Foundation\Http\FormRequest;

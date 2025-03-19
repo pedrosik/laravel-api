@@ -2,14 +2,14 @@
 
 namespace App\Http\Actions\Companies;
 
-use App\Http\Requests\Company\UpdateCompanyRequest;
+use App\Http\Requests\Companies\UpdateCompanyRequest;
 use App\Http\Resources\CompanyResource;
 use App\Models\Company;
 use App\Services\CompanyService;
 
-class UpdateCompanyAction
+final readonly class UpdateCompanyAction
 {
-    public function __construct(private readonly CompanyService $companyService)
+    public function __construct(private CompanyService $companyService)
     {
     }
 
@@ -18,7 +18,7 @@ class UpdateCompanyAction
      *
      * @group Companies
      *
-     * @response 200 storage/responses/company.json
+     * @response 200 storage/responses/companies/company.json
      */
     public function __invoke(UpdateCompanyRequest $request, Company $company): CompanyResource
     {

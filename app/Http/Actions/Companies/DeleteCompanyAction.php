@@ -6,9 +6,9 @@ use App\Models\Company;
 use App\Services\CompanyService;
 use Illuminate\Http\JsonResponse;
 
-class DeleteCompanyAction
+final readonly class DeleteCompanyAction
 {
-    public function __construct(private readonly CompanyService $companyService)
+    public function __construct(private CompanyService $companyService)
     {
     }
 

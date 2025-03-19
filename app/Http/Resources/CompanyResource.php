@@ -11,7 +11,9 @@ class CompanyResource extends JsonResource
     {
         $data = parent::toArray($request);
 
-        $data['employees'] = EmployeeResource::collection($this->whenLoaded('employees'));
+        if ($this->relationLoaded('employees')) {
+            $data['employees'] = EmployeeResource::collection($this->employees);
+        }
 
         return $data;
     }

@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Models\Company;
+use Illuminate\Support\Collection;
 
-class CompanyService
+final class CompanyService
 {
     public function create(array $data): Company
     {
-        return Company::create($data);
+        return Company::query()->create($data);
     }
 
     public function update(Company $company, array $data): Company

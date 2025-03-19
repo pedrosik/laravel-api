@@ -25,4 +25,9 @@ final class CompanyService
     {
         $company->delete();
     }
+
+    public function listEmployees(Company $company): Collection
+    {
+        return $company->employees()->get();
+    }
 }

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('phone')->nullable();
 
             $table->timestampsTz();
-            $table->softDeletesTz();
             $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }

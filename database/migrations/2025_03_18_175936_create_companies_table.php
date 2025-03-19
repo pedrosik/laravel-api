@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('post_code', 6);
 
             $table->timestampsTz();
-            $table->softDeletesTz();
         });
     }
 

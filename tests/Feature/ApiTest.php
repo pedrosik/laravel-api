@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Models\User;
-use App\ValueObjects\UserRole;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -43,10 +42,7 @@ abstract class ApiTest extends TestCase
 
     protected function getUser(): User
     {
-        $user = User::factory()->create();
-        $user->assignRole(UserRole::USER);
-
-        return $user;
+        return User::factory()->create();
     }
 
     protected static function getAdmin(): User
@@ -57,13 +53,9 @@ abstract class ApiTest extends TestCase
     protected function createAdminUser(): User
     {
         // Manually commit admin user creation to prevent transaction rollback
-        $admin = DB::transaction(function () {
-            $admin = User::factory()->create();
-            $admin->assignRole(UserRole::ADMIN);
-            return $admin;
+        return DB::transaction(function () {
+            return User::factory()->create();
         });
-
-        return $admin;
     }
 
     /**

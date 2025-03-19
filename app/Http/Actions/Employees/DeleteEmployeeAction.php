@@ -13,7 +13,7 @@ final readonly class DeleteEmployeeAction
     }
 
     /**
-    * Delete an employee
+     * Delete an employee
      *
      * @group Employees
      *
